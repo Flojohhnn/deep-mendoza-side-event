@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Event Devconnect Mendoza</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Side Event Devconnect Mendoza</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="banner">
-        ¡Registro exclusivo para la comunidad Devconnect! Cupos limitados.
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="assets/hero-video.mp4" type="video/mp4" />
+    Tu navegador no soporta el video.
+  </video>
+  <div class="overlay"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <span class="logo">Devconnect Mendoza</span>
+      <a href="#registro" class="btn-nav">Reservar</a>
     </div>
+  </header>
 
-    <header class="hero">
-        <video autoplay loop muted playsinline class="background-video">
-            <source src="assets/hero-video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>El Mejor Side Event de Devconnect Está en Mendoza</h1>
-            <p class="subtitle">Una experiencia secreta y exclusiva para asistentes de Devconnect ARG. ¿Te la vas a perder?</p>
-            <form id="email-form">
-                <input type="email" id="email-input" placeholder="Tu correo electrónico" required>
-                <button type="submit">Reservar Mi Lugar</button>
-            </form>
-            <div id="confirmation-message" class="hidden">
-                ¡Genial! Tu lugar está pre-reservado. Te contactaremos pronto.
-            </div>
-        </div>
-    </header>
+  <main class="container hero-content">
+    <h1>Side Event en Mendoza</h1>
+    <p class="tagline">Una experiencia exclusiva para la comunidad Devconnect Argentina 2025.</p>
+    <a href="#registro" class="btn-cta">QUIERO MI LUGAR</a>
+  </main>
 
-    <section class="why-mendoza">
-        <h2>¿Por Qué Mendoza?</h2>
-        <p>
-            Después del bullicio de Buenos Aires, vení a Mendoza a recargar energías. 
-            La Cordillera de los Andes, el vino y una comunidad vibrante te esperan.
-        </p>
-    </section>
+  <section class="container glass-section">
+    <h2>¿Por qué Mendoza?</h2>
+    <p>Mendoza es la pausa perfecta después de la intensidad de Buenos Aires. Montañas, vinos y tecnología en un solo lugar.</p>
+  </section>
 
-    <section class="community">
-        <h2>Únete a Nuestra Comunidad</h2>
-        <p>Sé parte del grupo exclusivo de asistentes al evento.</p>
-    </section>
+  <section id="registro" class="container glass-section">
+    <h2>Reservá tu lugar</h2>
+    <form id="email-form">
+      <input type="email" id="email-input" placeholder="Tu correo electrónico" required />
+      <button type="submit">Pre-registrarme</button>
+    </form>
+    <div id="confirmation-message" class="hidden">
+      ¡Genial! Te mantendremos informado.
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Side Event Devconnect Mendoza | Comunidad Web3</p>
-    </footer>
+  <footer class="container glass-footer">
+    <p>&copy; 2025 Devconnect Mendoza — Proyecto Independiente Web3</p>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
