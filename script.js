@@ -2,11 +2,22 @@ document.getElementById('email-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const input = document.getElementById('email-input');
-  const message = document.getElementById('confirmation-message');
+  const email = input.value;
+  const confirmation = document.getElementById('confirmation-message');
+  const form = document.getElementById('email-form');
 
-  if (input.value) {
-    console.log("Correo capturado:", input.value);
-    this.classList.add('hidden');
-    message.classList.remove('hidden');
+  if (email) {
+    fetch(https://script.google.com/macros/s/AKfycbygITUcV2W1NVRS5UMIT6-aJrkdCREUxLZGTcWbPijMkYoxCpp9nP6FuSjZdMmtdQHiuQ/exec, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `email=${encodeURIComponent(email)}`
+    });
+
+    form.classList.add('hidden');
+    confirmation.classList.remove('hidden');
+    input.value = "";
   }
 });
