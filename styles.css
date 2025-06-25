@@ -11,7 +11,7 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
+    background-color: transparent;
     color: var(--text-light);
     overflow-x: hidden;
 }
@@ -29,25 +29,35 @@ body {
 
 .hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: black;
 }
 
 .background-video {
-    position: fixed; /* Cambia absolute por fixed */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
-    z-index: -2;
-    pointer-events: none; /* Opcional, mejora interacción */
+    z-index: -3;
 }
-
 
 .overlay {
     position: absolute;
@@ -108,12 +118,20 @@ button:hover {
     display: none;
 }
 
-section, footer {
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
     position: relative;
-    z-index: 1;
 }
 
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #222;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.9);
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
