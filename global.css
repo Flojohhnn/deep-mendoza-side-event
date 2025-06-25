@@ -1,0 +1,26 @@
+/* global.css */
+/* Colores de marca */
+:root {
+  --brand-red: #d9534f;
+  --brand-yellow: #ffeb3b;
+  --brand-green: #28a745;
+}
+
+/* Cursor parpadeante */
+.blinking-cursor {
+  animation: blink 1s infinite step-end;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Override de inputs */
+input:focus {
+  outline: 2px solid var(--brand-yellow);
+}
+
+/* Sombra suave en cards */
+[data-aos] {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border-radius: 8px;
+}
