@@ -37,7 +37,7 @@ body {
     justify-content: center;
     text-align: center;
     z-index: 1;
-    padding-top: 3rem; /* para que no tape el banner */
+    padding-top: 3rem; /* para no tapar el banner */
 }
 
 .background-video {
@@ -64,6 +64,8 @@ body {
     max-width: 600px;
     animation: fadeIn 2s ease-in-out;
     padding: 0 1rem;
+    position: relative;
+    z-index: 3;
 }
 
 h1 {
@@ -115,19 +117,18 @@ button:hover {
     display: none;
 }
 
-/* 🔵 Secciones adicionales */
-section {
+/* 🔵 Secciones inferiores con fondo y z-index */
+section, footer {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(10, 10, 10, 0.95);
     padding: 4rem 2rem;
     text-align: center;
-    background-color: rgba(10,10,10,0.85);
 }
 
 footer {
-    text-align: center;
-    padding: 2rem;
     border-top: 1px solid #222;
     font-size: 0.9rem;
-    background-color: rgba(10,10,10,0.85);
 }
 
 /* Animaciones */
