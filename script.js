@@ -1,12 +1,12 @@
-document.getElementById('email-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const emailInput = document.getElementById('email-input');
-    const confirmationMessage = document.getElementById('confirmation-message');
+document.getElementById('email-form').addEventListener('submit', function (e) {
+  e.preventDefault();
 
-    console.log("Correo capturado:", emailInput.value);
+  const input = document.getElementById('email-input');
+  const message = document.getElementById('confirmation-message');
 
-    emailInput.value = '';
+  if (input.value) {
+    console.log("Correo capturado:", input.value);
     this.classList.add('hidden');
-    confirmationMessage.classList.remove('hidden');
+    message.classList.remove('hidden');
+  }
 });
