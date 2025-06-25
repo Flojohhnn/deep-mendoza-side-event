@@ -1,96 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Side Event Devconnect Mendoza</title>
-  <!-- 1. Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 2. AOS para scroll animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- 3. Tu CSS personalizado -->
-  <link rel="stylesheet" href="/global.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Event Devconnect Mendoza</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
-<body class="bg-gray-900 text-gray-100">
-  <!-- Urgency banner -->
-  <div class="fixed top-0 w-full bg-black bg-opacity-75 text-yellow-400 text-center py-2 z-50">
-    Cupos limitados: ¡reserva tu lugar antes de que se agoten!
-  </div>
-
-  <!-- Hero -->
-  <header class="h-screen flex flex-col justify-center items-center text-center px-4" 
-          style="background: url('/assets/mendoza.jpg') center/cover no-repeat;">
-    <div class="bg-black bg-opacity-50 p-8 rounded-lg" data-aos="fade-down">
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-4">El Mejor Side Event de Devconnect</h1>
-      <p class="text-xl md:text-2xl mb-6 italic">
-        <span id="typed-text"></span><span class="blinking-cursor">|</span>
-      </p>
-      <form id="email-form" class="flex flex-col sm:flex-row gap-3 justify-center" data-aos="zoom-in" data-aos-delay="200">
-        <input type="email" placeholder="Tu correo para reservar" required
-               class="px-4 py-3 rounded-md w-full sm:w-auto focus:outline-none" />
-        <button type="submit"
-               class="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-md transform hover:scale-105 transition">
-          QUIERO MI LUGAR
-        </button>
-      </form>
+<body>
+    <div class="banner">
+        ¡Registro exclusivo para la comunidad Devconnect! Cupos limitados.
     </div>
-  </header>
 
-  <!-- Sección ¿Por qué Mendoza? -->
-  <section class="py-20 px-4 max-w-3xl mx-auto" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">¿Por Qué Mendoza?</h2>
-    <p class="text-lg leading-relaxed">
-      Después del bullicio de Devconnect en Buenos Aires, Mendoza ofrece 
-      el descanso perfecto entre viñedos y montañas. Conecta, aprende y 
-      descubre un nuevo punto de vista en un entorno único.
-    </p>
-  </section>
+    <header class="hero">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="assets/hero-video.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>El Mejor Side Event de Devconnect Está en Mendoza</h1>
+            <p class="subtitle">Una experiencia secreta y exclusiva para asistentes de Devconnect ARG. ¿Te la vas a perder?</p>
+            <form id="email-form">
+                <input type="email" id="email-input" placeholder="Tu correo electrónico" required>
+                <button type="submit">Reservar Mi Lugar</button>
+            </form>
+            <div id="confirmation-message" class="hidden">
+                ¡Genial! Tu lugar está pre-reservado. Te contactaremos pronto.
+            </div>
+        </div>
+    </header>
 
-  <!-- Sección Testimonios / Partners -->
-  <section class="py-20 bg-gray-800" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-center mb-10">Ellos ya se sumaron</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center">
-      <!-- Ejemplo de logo -->
-      <img src="/assets/logo1.svg" alt="Partner 1" class="mx-auto h-12" />
-      <img src="/assets/logo2.svg" alt="Partner 2" class="mx-auto h-12" />
-      <!-- … -->
-    </div>
-  </section>
+    <section class="why-mendoza">
+        <h2>¿Por Qué Mendoza?</h2>
+        <p>
+            Después del bullicio de Buenos Aires, vení a Mendoza a recargar energías. 
+            La Cordillera de los Andes, el vino y una comunidad vibrante te esperan.
+        </p>
+    </section>
 
-  <!-- Footer -->
-  <footer class="py-8 text-center text-sm text-gray-400">
-    &copy; 2025 Mendoza Side Event · Creado para la comunidad Web3
-  </footer>
+    <section class="community">
+        <h2>Únete a Nuestra Comunidad</h2>
+        <p>Sé parte del grupo exclusivo de asistentes al evento.</p>
+    </section>
 
-  <!-- Scripts adicional -->
-  <script>
-    AOS.init({ once: true });
-    // Typewriter effect
-    const phrases = [
-      "Reserva tu lugar antes que nadie",
-      "Experiencia exclusiva para Devconnect ARG",
-      "Conecta en Mendoza"
-    ];
-    let idx = 0, char = 0, current = '', isDeleting = false;
-    function type() {
-      if (!isDeleting && char <= phrases[idx].length) {
-        current = phrases[idx].substring(0, char++);
-      } else if (isDeleting && char >= 0) {
-        current = phrases[idx].substring(0, char--);
-      }
-      document.getElementById('typed-text').innerText = current;
-      if (char === phrases[idx].length) isDeleting = true;
-      if (isDeleting && char === 0) { isDeleting = false; idx = (idx+1)%phrases.length; }
-      setTimeout(type, isDeleting ? 50 : 150);
-    }
-    document.addEventListener('DOMContentLoaded', type);
-    // Form handler (igual que antes)
-    document.getElementById('email-form').addEventListener('submit', e => {
-      e.preventDefault();
-      // … lógica de captura
-      alert('¡Gracias! Te avisaremos pronto.');
-    });
-  </script>
+    <footer>
+        <p>&copy; 2025 Side Event Devconnect Mendoza | Comunidad Web3</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
