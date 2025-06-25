@@ -11,11 +11,12 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: transparent;
+    background-color: var(--bg-dark);
     color: var(--text-light);
     overflow-x: hidden;
 }
 
+/* 🟡 Banner superior */
 .banner {
     background: rgba(0,0,0,0.9);
     color: var(--highlight-yellow);
@@ -24,9 +25,10 @@ body {
     font-size: 0.9rem;
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
 }
 
+/* 🟢 Sección Hero con video fijo */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -34,19 +36,8 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow: hidden;
     z-index: 1;
-}
-
-.hero::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -2;
-    background: black;
+    padding-top: 3rem; /* para que no tape el banner */
 }
 
 .background-video {
@@ -60,13 +51,13 @@ body {
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.6);
-    z-index: -1;
+    z-index: -2;
 }
 
 .content {
@@ -97,6 +88,12 @@ input[type="email"] {
     border: none;
     font-size: 1rem;
     text-align: center;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+input[type="email"]::placeholder {
+    color: #ccc;
 }
 
 button {
@@ -118,11 +115,11 @@ button:hover {
     display: none;
 }
 
+/* 🔵 Secciones adicionales */
 section {
     padding: 4rem 2rem;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: relative;
+    background-color: rgba(10,10,10,0.85);
 }
 
 footer {
@@ -130,14 +127,16 @@ footer {
     padding: 2rem;
     border-top: 1px solid #222;
     font-size: 0.9rem;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(10,10,10,0.85);
 }
 
+/* Animaciones */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
     .subtitle { font-size: 1rem; }
